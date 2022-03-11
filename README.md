@@ -2,12 +2,12 @@
 
 Cygnus is a free open source data synchronization tool.
 
-## Design
+## Use case
 
 ```mermaid
 sequenceDiagram
-  Cygnus->>Source (SQL Server): Read
-  Cygnus->>Destination (MongoDB): CreateOrUpdate
+  Cygnus->>Source (SQL Server): read
+  Cygnus->>Destination (MongoDB): createOrUpdate
 ```
 
 ## Quick start

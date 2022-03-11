@@ -1,0 +1,76 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Solution Items", "0 - Solution Items", "{68681C33-F36D-430E-BF17-42775AA7D4A5}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		.gitlab-ci.yml = .gitlab-ci.yml
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "src\ConsoleApp\ConsoleApp.csproj", "{36128AE8-55E0-4E5A-8140-CA91F2506143}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Infrastructure", "1 - Infrastructure", "{1A8E187B-6193-43B3-99AC-9C4CA30D8A9C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Domain", "2 - Domain", "{E255E96D-9106-44CD-98B4-EC90559F2953}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Application", "3 - Application", "{3377A148-E3C8-4F79-AD53-69119F2ABA50}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "src\Domain\Domain.csproj", "{17A0C3B2-C61F-468F-B2DE-D7B2AAD9ADD9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.SqlServerClient", "src\Infrastructure.SqlServerClient\Infrastructure.SqlServerClient.csproj", "{ACDE99DD-E47F-40DF-A189-E71C88BC2A94}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.MongoDbDriverClient", "src\Infrastructure.MongoDbDriverClient\Infrastructure.MongoDbDriverClient.csproj", "{1CA1472B-BC8E-4877-BDC9-77641CA99427}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.RestApiClient", "src\Infrastructure.RestApiClient\Infrastructure.RestApiClient.csproj", "{148CB284-248F-447D-8111-A5E720C58979}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{748C24B4-CF84-47B4-A5C7-4203CA0763A5}"
+	ProjectSection(SolutionItems) = preProject
+		samples\sqlserver-to-mongodb-migration.yml = samples\sqlserver-to-mongodb-migration.yml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{36128AE8-55E0-4E5A-8140-CA91F2506143}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36128AE8-55E0-4E5A-8140-CA91F2506143}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36128AE8-55E0-4E5A-8140-CA91F2506143}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36128AE8-55E0-4E5A-8140-CA91F2506143}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17A0C3B2-C61F-468F-B2DE-D7B2AAD9ADD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17A0C3B2-C61F-468F-B2DE-D7B2AAD9ADD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17A0C3B2-C61F-468F-B2DE-D7B2AAD9ADD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17A0C3B2-C61F-468F-B2DE-D7B2AAD9ADD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACDE99DD-E47F-40DF-A189-E71C88BC2A94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACDE99DD-E47F-40DF-A189-E71C88BC2A94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACDE99DD-E47F-40DF-A189-E71C88BC2A94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACDE99DD-E47F-40DF-A189-E71C88BC2A94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CA1472B-BC8E-4877-BDC9-77641CA99427}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CA1472B-BC8E-4877-BDC9-77641CA99427}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CA1472B-BC8E-4877-BDC9-77641CA99427}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CA1472B-BC8E-4877-BDC9-77641CA99427}.Release|Any CPU.Build.0 = Release|Any CPU
+		{148CB284-248F-447D-8111-A5E720C58979}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{148CB284-248F-447D-8111-A5E720C58979}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{148CB284-248F-447D-8111-A5E720C58979}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{148CB284-248F-447D-8111-A5E720C58979}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{36128AE8-55E0-4E5A-8140-CA91F2506143} = {3377A148-E3C8-4F79-AD53-69119F2ABA50}
+		{17A0C3B2-C61F-468F-B2DE-D7B2AAD9ADD9} = {E255E96D-9106-44CD-98B4-EC90559F2953}
+		{ACDE99DD-E47F-40DF-A189-E71C88BC2A94} = {1A8E187B-6193-43B3-99AC-9C4CA30D8A9C}
+		{1CA1472B-BC8E-4877-BDC9-77641CA99427} = {1A8E187B-6193-43B3-99AC-9C4CA30D8A9C}
+		{148CB284-248F-447D-8111-A5E720C58979} = {1A8E187B-6193-43B3-99AC-9C4CA30D8A9C}
+		{748C24B4-CF84-47B4-A5C7-4203CA0763A5} = {68681C33-F36D-430E-BF17-42775AA7D4A5}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0F763428-8334-40DC-A997-68789338091B}
+	EndGlobalSection
+EndGlobal

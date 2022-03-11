@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <AssemblyName>Cygnus.ConsoleApp</AssemblyName>
+    <RootNamespace>Cygnus.ConsoleApp</RootNamespace>
+    <ProjectGuid>{3B29D10C-9017-4A5B-8AD9-13AA634FC180}</ProjectGuid>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommandLineParser" Version="2.8.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="6.0.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Configuration" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="6.0.0" />
+    <PackageReference Include="YamlDotNet" Version="11.2.1" GeneratePathProperty="true" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Infrastructure.MongoDbDriverClient\Infrastructure.MongoDbDriverClient.csproj" />
+    <ProjectReference Include="..\Infrastructure.RestApiClient\Infrastructure.RestApiClient.csproj" />
+    <ProjectReference Include="..\Infrastructure.SqlServerClient\Infrastructure.SqlServerClient.csproj" />
+  </ItemGroup>
+
+</Project>

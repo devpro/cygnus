@@ -1,0 +1,15 @@
+﻿using System.Collections.Generic;
+
+namespace Cygnus.Domain.Models
+{
+    public class DestinationModel
+    {
+        public ProviderTypeModel Provider { get; set; }
+
+        public string Collection { get; set; } = string.Empty;
+
+        public string CorrelationField { get; set; } = string.Empty;
+
+        public List<FieldModel> Fields { get; set; } = new List<FieldModel>();
+    }
+}
