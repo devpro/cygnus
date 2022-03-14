@@ -68,7 +68,7 @@ pack:
     - cd $ROOT_FOLDER
     - dotnet restore
     - dotnet build --no-restore --configuration Release
-    - dotnet pack --no-build --configuration Release -o output
+    - dotnet pack src/ConsoleApp/ConsoleApp.csproj --no-build --configuration Release -o output
     - ls -alrt output
     - for f in output/*.nupkg; do dotnet nuget push "$f" --api-key $NUGET_APIKEY --source https://api.nuget.org/v3/index.json ; done
   only:
