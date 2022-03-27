@@ -2,9 +2,7 @@
 {
     internal class ApplicationConfiguration
     {
-        public const string InfrastructureSqlServerConfigKey = "Infrastructure:SqlServer";
-
-        public const string InfrastructureMongoDbDriverConfigKey = "Infrastructure:MongoDbDriver";
+        public const string DatabasesConfigKey = "Databases";
 
         private readonly IConfigurationRoot _configurationRoot;
 
@@ -13,10 +11,7 @@
             _configurationRoot = configurationRoot;
         }
 
-        public Infrastructure.SqlServerClient.SqlServerClientConfiguration SqlServerClientConfiguration =>
-            _configurationRoot.GetSection(InfrastructureSqlServerConfigKey).Get<Infrastructure.SqlServerClient.SqlServerClientConfiguration>();
-
-        public Infrastructure.MongoDbDriverClient.MongoDbDriverClientConfiguration MongoDbDriverClientConfiguration =>
-            _configurationRoot.GetSection(InfrastructureMongoDbDriverConfigKey).Get<Infrastructure.MongoDbDriverClient.MongoDbDriverClientConfiguration>();
+        public Domain.Repositories.DatabaseConfiguration DatabaseConfiguration =>
+            _configurationRoot.GetSection(DatabasesConfigKey).Get<Domain.Repositories.DatabaseConfiguration>();
     }
 }

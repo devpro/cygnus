@@ -4,6 +4,7 @@
     {
         MongoDB,
         SQLServer,
-        RestAPI
+        RestAPI,
+        None
     }
 }

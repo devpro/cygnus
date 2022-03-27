@@ -13,8 +13,8 @@ namespace Cygnus.ConsoleApp.Tasks
 
         public ITask Create(EntityModel entity)
         {
-            if (entity.Source.Provider == ProviderTypeModel.SQLServer
-                && entity.Destination.Provider == ProviderTypeModel.MongoDB)
+            if (entity.Source.ProviderType == ProviderTypeModel.SQLServer
+                && entity.Destination.ProviderType == ProviderTypeModel.MongoDB)
             {
                 return new DataSyncTask(
                     _serviceProvider.GetService<ILogger<DataSyncTask>>() ?? throw new InvalidOperationException("ILogger must be defined in service collection"),
@@ -22,7 +22,7 @@ namespace Cygnus.ConsoleApp.Tasks
                     _serviceProvider.GetService<Infrastructure.MongoDbDriverClient.MongoDbDriverClientRepository>() ?? throw new InvalidOperationException("MongoDbDriverClientRepository must be defined in service collection"));
             }
 
-            throw new InvalidOperationException($"Operation \"{entity.Source.Provider}\" -> \"{entity.Destination.Provider}\" not implemented");
+            throw new InvalidOperationException($"Operation \"{entity.Source.ProviderType}\" -> \"{entity.Destination.ProviderType}\" not implemented");
         }
     }
 }

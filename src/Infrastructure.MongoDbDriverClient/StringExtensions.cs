@@ -1,8 +1,8 @@
 ﻿namespace Cygnus.Infrastructure.MongoDbDriverClient
 {
-    public static class StringExtensions
+    internal static class StringExtensions
     {
-        public static string ToBooleanString(this string input)
+        internal static string ToBooleanString(this string input)
         {
             if (input == null || !bool.TryParse(input, out var result))
             {

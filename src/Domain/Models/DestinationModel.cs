@@ -4,7 +4,11 @@ namespace Cygnus.Domain.Models
 {
     public class DestinationModel
     {
-        public ProviderTypeModel Provider { get; set; }
+        public string Name { get; set; } = string.Empty;
+
+        public ProviderTypeModel ProviderType { get; set; } = ProviderTypeModel.None;
+
+        public string Database { get; set; } = string.Empty;
 
         public string Collection { get; set; } = string.Empty;
 

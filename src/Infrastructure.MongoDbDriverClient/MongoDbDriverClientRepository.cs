@@ -9,19 +9,18 @@ using MongoDB.Bson;
 using MongoDB.Bson.IO;
 using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
-using Withywoods.Dal.MongoDb;
 
 namespace Cygnus.Infrastructure.MongoDbDriverClient
 {
     public class MongoDbDriverClientRepository : IDataSynchronizationRepository
     {
-        private readonly IMongoDbContext _mongoDbContext;
+        private readonly MongoClientFactory _mongoClientFactory;
 
         private readonly ILogger<MongoDbDriverClientRepository> _logger;
 
-        public MongoDbDriverClientRepository(IMongoDbContext mongoDbContext, ILogger<MongoDbDriverClientRepository> logger)
+        public MongoDbDriverClientRepository(MongoClientFactory mongoClientFactory, ILogger<MongoDbDriverClientRepository> logger)
         {
-            _mongoDbContext = mongoDbContext;
+            _mongoClientFactory = mongoClientFactory;
             _logger = logger;
         }
 
@@ -32,7 +31,9 @@ namespace Cygnus.Infrastructure.MongoDbDriverClient
 
         public async Task WriteAsync(List<Dictionary<string, string>> data, DestinationModel destination)
         {
-            var collection = _mongoDbContext.GetDatabase().GetCollection<BsonDocument>(destination.Collection);
+            var mongoDbClient = _mongoClientFactory.CreateClient(destination.Name);
+
+            var collection = mongoDbClient.GetDatabase(destination.Database).GetCollection<BsonDocument>(destination.Collection);
 
             var existing = await FindAllAsync(collection, destination.CorrelationField);
 

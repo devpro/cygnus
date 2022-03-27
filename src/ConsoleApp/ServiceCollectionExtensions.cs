@@ -25,15 +25,20 @@
 
         internal static IServiceCollection AddInfrastructure(this IServiceCollection services, ApplicationConfiguration configuration)
         {
+            // Domain
+            services.AddSingleton(configuration.DatabaseConfiguration);
+
             // SQL Server
-            services.AddSingleton(configuration.SqlServerClientConfiguration);
             services.AddTransient<Infrastructure.SqlServerClient.SqlServerClientRepository>();
 
             // MongoDB
-            services.AddSingleton(configuration.MongoDbDriverClientConfiguration);
-            services.AddSingleton<Withywoods.Dal.MongoDb.IMongoDbConfiguration>(configuration.MongoDbDriverClientConfiguration);
-            services.TryAddTransient<Withywoods.Dal.MongoDb.IMongoClientFactory, Withywoods.Dal.MongoDb.MongoClientFactory>();
-            services.TryAddScoped<Withywoods.Dal.MongoDb.IMongoDbContext, Withywoods.Dal.MongoDb.DefaultMongoDbContext>();
+            // TODO
+            var mongoDbDriverClientConfiguration = new Infrastructure.MongoDbDriverClient.MongoDbDriverClientConfiguration()
+            {
+                ConnectionString = configuration.DatabaseConfiguration.ConnectionStrings["MongoDbLocal"]
+            };
+            services.AddSingleton(mongoDbDriverClientConfiguration);
+            services.TryAddScoped<Infrastructure.MongoDbDriverClient.MongoClientFactory>();
             services.AddTransient<Infrastructure.MongoDbDriverClient.MongoDbDriverClientRepository>();
 
             return services;

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Threading.Tasks;
 using Cygnus.Domain.Models;
 using Cygnus.Domain.Repositories;
@@ -13,9 +12,9 @@ namespace Cygnus.Infrastructure.SqlServerClient
     {
         private readonly ILogger<SqlServerClientRepository> _logger;
 
-        private readonly SqlServerClientConfiguration _configuration;
+        private readonly DatabaseConfiguration _configuration;
 
-        public SqlServerClientRepository(ILogger<SqlServerClientRepository> logger, SqlServerClientConfiguration configuration)
+        public SqlServerClientRepository(ILogger<SqlServerClientRepository> logger, DatabaseConfiguration configuration)
         {
             _logger = logger;
             _configuration = configuration;
@@ -23,14 +22,16 @@ namespace Cygnus.Infrastructure.SqlServerClient
 
         public async Task<List<Dictionary<string, string>>> ReadAsync(SourceModel source, List<FieldModel> fields, string correlationField)
         {
+            if (!_configuration.ConnectionStrings.ContainsKey(source.Name))
+            {
+                throw new Exception($"Missing SQL Server connection string with name \"{source.Name}\"");
+            }
+
             try
             {
-                var builder = new SqlConnectionStringBuilder
+                var builder = new SqlConnectionStringBuilder(_configuration.ConnectionStrings[source.Name])
                 {
-                    DataSource = _configuration.DataSource,
-                    UserID = _configuration.UserId,
-                    Password = _configuration.Password,
-                    InitialCatalog = _configuration.InitialCatalog
+                    InitialCatalog = source.Database
                 };
 
                 using var connection = new SqlConnection(builder.ConnectionString);
@@ -45,19 +46,24 @@ namespace Cygnus.Infrastructure.SqlServerClient
                 while (await reader.ReadAsync())
                 {
                     // avoid issues with duplicates in source
-                    if (!correlationFieldValues.Contains(reader[correlationField].ToString()))
+                    if (correlationFieldValues.Contains(reader[correlationField].ToString()))
                     {
-                        data.Add(ReadEntityFields(reader, fields));
-                        correlationFieldValues.Add(reader[correlationField].ToString());
+                        _logger.LogInformation("Duplicate entry found in SQL Server results for {FieldName}=\"{FieldValue}\"",
+                            reader[correlationField].ToString());
+                        continue;
                     }
+
+                    data.Add(ReadEntityFields(reader, fields));
+                    correlationFieldValues.Add(reader[correlationField].ToString());
                 }
 
                 return data;
             }
             catch (Exception exc)
             {
-                _logger.LogWarning("An error is raised on SQL Server database call [DataSource={DataSource}] [ExceptionMessage={ExceptionMessage}] [SqlQuery={SqlQuery}]",
-                    _configuration.DataSource, exc.Message, source.Query);
+                _logger.LogWarning("An error is raised on SQL Server database call [ExceptionMessage={ExceptionMessage}] [DataSource={DataSource}] [SqlQuery={SqlQuery}]",
+                    source.Name, exc.Message, source.Query);
+                _logger.LogDebug(exc.StackTrace);
                 throw;
             }
         }

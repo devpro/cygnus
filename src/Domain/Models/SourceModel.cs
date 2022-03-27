@@ -2,7 +2,11 @@
 {
     public class SourceModel
     {
-        public ProviderTypeModel Provider { get; set; }
+        public string Name { get; set; } = string.Empty;
+
+        public ProviderTypeModel ProviderType { get; set; } = ProviderTypeModel.None;
+
+        public string Database { get; set; } = string.Empty;
 
         public string Query { get; set; } = string.Empty;
     }

@@ -23,9 +23,13 @@ namespace Cygnus.ConsoleApp.Tasks
 
         public async Task ProcessAsync(EntityModel entity)
         {
+            _logger.LogInformation("Processing {EntityName} entity starting...", entity.Name);
+
             var data = await _sourceRepository.ReadAsync(entity.Source, entity.Destination.Fields, entity.Destination.CorrelationField);
 
             await _destinationRepository.WriteAsync(data, entity.Destination);
+
+            _logger.LogInformation("Processing of {EntityName} entity complete.", entity.Name);
         }
     }
 }
