@@ -8,6 +8,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Solution Items", "0 - S
 		.editorconfig = .editorconfig
 		.gitignore = .gitignore
 		.gitlab-ci.yml = .gitlab-ci.yml
+		Directory.Build.props = Directory.Build.props
 		README.md = README.md
 	EndProjectSection
 EndProject
@@ -37,7 +38,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{5C45D27A-5
 		docs\automation.md = docs\automation.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.SqlServerClient.IntegrationTests", "test\Infrastructure.SqlServerClient.IntegrationTests\Infrastructure.SqlServerClient.IntegrationTests.csproj", "{8D7F27D8-A039-404D-8729-44E386BE3856}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.SqlServerClient.IntegrationTests", "test\Infrastructure.SqlServerClient.IntegrationTests\Infrastructure.SqlServerClient.IntegrationTests.csproj", "{4C1496CF-D191-42FB-9E8F-71FB2B7B1E79}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "mssql", "mssql", "{807D4311-BA2C-41EC-A67E-D7F686C81EEB}"
 	ProjectSection(SolutionItems) = preProject
@@ -70,10 +71,10 @@ Global
 		{BD8F4A83-E2E7-4996-B144-4CF93D4851DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD8F4A83-E2E7-4996-B144-4CF93D4851DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD8F4A83-E2E7-4996-B144-4CF93D4851DF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8D7F27D8-A039-404D-8729-44E386BE3856}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8D7F27D8-A039-404D-8729-44E386BE3856}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8D7F27D8-A039-404D-8729-44E386BE3856}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8D7F27D8-A039-404D-8729-44E386BE3856}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C1496CF-D191-42FB-9E8F-71FB2B7B1E79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C1496CF-D191-42FB-9E8F-71FB2B7B1E79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C1496CF-D191-42FB-9E8F-71FB2B7B1E79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C1496CF-D191-42FB-9E8F-71FB2B7B1E79}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -86,7 +87,7 @@ Global
 		{BD8F4A83-E2E7-4996-B144-4CF93D4851DF} = {1A8E187B-6193-43B3-99AC-9C4CA30D8A9C}
 		{748C24B4-CF84-47B4-A5C7-4203CA0763A5} = {68681C33-F36D-430E-BF17-42775AA7D4A5}
 		{5C45D27A-568B-40BA-97B4-01953C0F68D8} = {68681C33-F36D-430E-BF17-42775AA7D4A5}
-		{8D7F27D8-A039-404D-8729-44E386BE3856} = {1A8E187B-6193-43B3-99AC-9C4CA30D8A9C}
+		{4C1496CF-D191-42FB-9E8F-71FB2B7B1E79} = {1A8E187B-6193-43B3-99AC-9C4CA30D8A9C}
 		{807D4311-BA2C-41EC-A67E-D7F686C81EEB} = {68681C33-F36D-430E-BF17-42775AA7D4A5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
