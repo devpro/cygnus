@@ -2,9 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
-    <AssemblyName>Cygnus.Infrastructure.RestApiClient</AssemblyName>
-    <RootNamespace>Cygnus.Infrastructure.RestApiClient</RootNamespace>
-    <ProjectGuid>{BD8F4A83-E2E7-4996-B144-4CF93D4851DF}</ProjectGuid>
+    <AssemblyName>Cygnus.Serialization</AssemblyName>
+    <RootNamespace>Cygnus.Serialization</RootNamespace>
+    <ProjectGuid>{04F7901C-60AE-4814-9EBD-75B31D57FA77}</ProjectGuid>
     <Nullable>enable</Nullable>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.1" />
+    <PackageReference Include="SharpYaml" Version="1.9.0" />
   </ItemGroup>
 
 </Project>

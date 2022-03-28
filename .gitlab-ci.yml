@@ -15,6 +15,7 @@ workflow:
   rules:
     - if: '$CI_PIPELINE_SOURCE == "external_pull_request_event"'
     - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+    - if: '$CI_PIPELINE_SOURCE == "web"'
 
 build:
   stage: build
@@ -61,6 +62,7 @@ test:
   only:
     - external_pull_requests
     - main
+    - web
 
 pack:
   stage: build
@@ -68,13 +70,12 @@ pack:
     - cd $ROOT_FOLDER
     - dotnet restore
     - dotnet build --no-restore --configuration Release
-    - dotnet pack src/ConsoleApp/ConsoleApp.csproj --no-build --configuration Release -o output
-    - ls -alrt output
-    - for f in output/*.nupkg; do dotnet nuget push "$f" --api-key $NUGET_APIKEY --source https://api.nuget.org/v3/index.json ; done
-  only:
-    refs:
-      - main
-    changes:
-      - Directory.Build.props
-    variables:
-      - $CI_PIPELINE_SOURCE == "push"
+    - dotnet pack --no-build --configuration Release
+    - for f in nupkg/*.nupkg; do dotnet nuget push "$f" --api-key $NUGET_APIKEY --source https://api.nuget.org/v3/index.json ; done
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      changes:
+        - Directory.Build.props
+      when: always
+    - if: '$CI_PIPELINE_SOURCE == "web"'
+      when: always

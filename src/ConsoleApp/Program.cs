@@ -1,5 +1,7 @@
 ﻿// main
 
+using System.Reflection;
+
 await Parser.Default.ParseArguments<CommandLineOptions>(args)
     .MapResult(
         (CommandLineOptions opts) => RunOptionsAndReturnExitCode(opts),
@@ -12,11 +14,11 @@ async Task<int> RunOptionsAndReturnExitCode(CommandLineOptions opts)
 {
     try
     {
-        var appConfiguration = new ApplicationConfiguration(LoadConfiguration());
+        var appConfiguration = new ApplicationConfiguration(LoadConfiguration(opts));
 
         using var serviceProvider = CreateServiceProvider(opts, appConfiguration);
 
-        var yamlService = serviceProvider.GetRequiredService<YamlService>();
+        var yamlService = serviceProvider.GetRequiredService<Cygnus.Serialization.YamlService>();
         var rootModel = yamlService.ReadFile(opts.DefinitionFile);
 
         var factory = new ApplicationTaskFactory(serviceProvider);
@@ -45,10 +47,16 @@ static int HandleParseError()
     return -2;
 }
 
-IConfigurationRoot LoadConfiguration()
+IConfigurationRoot LoadConfiguration(CommandLineOptions opts)
 {
-    return new ConfigurationBuilder()
-        .AddEnvironmentVariables()
+    var builder = new ConfigurationBuilder();
+
+    if (!string.IsNullOrEmpty(opts.ConfigurationFile) && File.Exists(opts.ConfigurationFile))
+    {
+        builder.AddJsonFile(opts.ConfigurationFile, true, true);
+    }
+
+    return builder.AddEnvironmentVariables()
         .Build();
 }
 
@@ -56,6 +64,7 @@ static ServiceProvider CreateServiceProvider(CommandLineOptions opts, Applicatio
 {
     var serviceCollection = new ServiceCollection()
         .AddLogging(opts)
+        .AddDomain(appConfiguration)
         .AddServices()
         .AddInfrastructure(appConfiguration);
 

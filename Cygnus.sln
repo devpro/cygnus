@@ -30,6 +30,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.RestApiClien
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{748C24B4-CF84-47B4-A5C7-4203CA0763A5}"
 	ProjectSection(SolutionItems) = preProject
+		samples\settings.json = samples\settings.json
 		samples\sqlserver-to-mongodb-migration.yml = samples\sqlserver-to-mongodb-migration.yml
 	EndProjectSection
 EndProject
@@ -44,6 +45,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "mssql", "mssql", "{807D4311
 	ProjectSection(SolutionItems) = preProject
 		scripts\mssql\db-init.sql = scripts\mssql\db-init.sql
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Serialization", "src\Serialization\Serialization.csproj", "{04F7901C-60AE-4814-9EBD-75B31D57FA77}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +78,10 @@ Global
 		{4C1496CF-D191-42FB-9E8F-71FB2B7B1E79}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C1496CF-D191-42FB-9E8F-71FB2B7B1E79}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C1496CF-D191-42FB-9E8F-71FB2B7B1E79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04F7901C-60AE-4814-9EBD-75B31D57FA77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04F7901C-60AE-4814-9EBD-75B31D57FA77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04F7901C-60AE-4814-9EBD-75B31D57FA77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04F7901C-60AE-4814-9EBD-75B31D57FA77}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -89,6 +96,7 @@ Global
 		{5C45D27A-568B-40BA-97B4-01953C0F68D8} = {68681C33-F36D-430E-BF17-42775AA7D4A5}
 		{4C1496CF-D191-42FB-9E8F-71FB2B7B1E79} = {1A8E187B-6193-43B3-99AC-9C4CA30D8A9C}
 		{807D4311-BA2C-41EC-A67E-D7F686C81EEB} = {68681C33-F36D-430E-BF17-42775AA7D4A5}
+		{04F7901C-60AE-4814-9EBD-75B31D57FA77} = {E255E96D-9106-44CD-98B4-EC90559F2953}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0F763428-8334-40DC-A997-68789338091B}

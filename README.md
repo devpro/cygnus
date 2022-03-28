@@ -26,6 +26,9 @@ dotnet tool install --global cygnus
 
 # displays help
 cygnus --help
+
+# synchronizes data
+cygnus -f <config_file>
 ```
 
 ## Contribue
@@ -55,4 +58,17 @@ docker exec $MSSQL_HOST /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P $MSSQL
 # runs MongoDB in a container
 MONGODB_HOST=mongodb
 docker run --rm --name $MONGODB_HOST -d -p 27017:27017 mongo:5.0
+```
+
+### Validating the global tool
+
+```bash
+# packages the application
+dotnet pack
+
+# installs the tool from a local build
+dotnet tool install --global --add-source ./nupkg cygnus --version 1.0.1-alpha-000000
+
+# removes the tool
+dotnet tool uninstall --global cygnus
 ```

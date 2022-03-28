@@ -6,6 +6,7 @@
     <RootNamespace>Cygnus.Infrastructure.SqlServerClient</RootNamespace>
     <ProjectGuid>{E9A38A06-76D4-494E-810E-ACBBC8E8B2E9}</ProjectGuid>
     <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

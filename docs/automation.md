@@ -17,7 +17,7 @@ which is defined in [`.gitlab-ci.yml`](../.gitlab-ci.yml) file.
 
 Name | Value | Protected | Masked
 ---- | ----- | --------- | ------
-NUGET_APIKEY | API key generated from nuget.org website | Yes | Yes
+NUGET_APIKEY | API key generated from nuget.org website | No | Yes
 SONAR_ORGANIZATION | Sonar Organization | No | No
 SONAR_PROJECTKEY | Sonar Project Key | No | No
 SONAR_HOSTURL | Sonar Instance URL | No | No

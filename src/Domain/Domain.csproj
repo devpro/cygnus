@@ -6,6 +6,7 @@
     <RootNamespace>Cygnus.Domain</RootNamespace>
     <ProjectGuid>{6562BCE2-26F0-4C99-8DA1-220E29188CE8}</ProjectGuid>
     <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

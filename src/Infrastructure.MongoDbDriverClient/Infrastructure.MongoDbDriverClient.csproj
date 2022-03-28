@@ -6,6 +6,7 @@
     <RootNamespace>Cygnus.Infrastructure.MongoDbDriverClient</RootNamespace>
     <ProjectGuid>{EC15632E-91D5-4CCE-A28C-E86B25B3DECE}</ProjectGuid>
     <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

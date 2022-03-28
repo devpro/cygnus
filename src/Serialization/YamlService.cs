@@ -1,8 +1,10 @@
-﻿using Cygnus.Domain.Models;
-using YamlDotNet.Serialization;
-using YamlDotNet.Serialization.NamingConventions;
+﻿using System;
+using System.IO;
+using Cygnus.Domain.Models;
+using Microsoft.Extensions.Logging;
+using SharpYaml.Serialization;
 
-namespace Cygnus.ConsoleApp.Services
+namespace Cygnus.Serialization
 {
     public class YamlService
     {
@@ -20,13 +22,15 @@ namespace Cygnus.ConsoleApp.Services
                 throw new ArgumentNullException(nameof(filename), $"File \"{Directory.GetCurrentDirectory()}/{filename}\" doesn't exist");
             }
 
-            var deserializer = new DeserializerBuilder()
-                    .WithNamingConvention(CamelCaseNamingConvention.Instance)
-                    .Build();
+            var serializerSettings = new SerializerSettings
+            {
+                NamingConvention = new CamelCaseNamingConvention()
+            };
+            var serializer = new Serializer(serializerSettings);
 
             try
             {
-                return deserializer.Deserialize<RootModel>(File.ReadAllText(filename));
+                return serializer.Deserialize<RootModel>(File.ReadAllText(filename));
             }
             catch (Exception exc)
             {

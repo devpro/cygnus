@@ -16,18 +16,20 @@
             return services;
         }
 
+        internal static IServiceCollection AddDomain(this IServiceCollection services, ApplicationConfiguration configuration)
+        {
+            services.AddSingleton(configuration.DatabaseConfiguration);
+            return services;
+        }
+
         internal static IServiceCollection AddServices(this IServiceCollection services)
         {
-            services.AddTransient<YamlService>();
-
+            services.AddTransient<Serialization.YamlService>();
             return services;
         }
 
         internal static IServiceCollection AddInfrastructure(this IServiceCollection services, ApplicationConfiguration configuration)
         {
-            // Domain
-            services.AddSingleton(configuration.DatabaseConfiguration);
-
             // SQL Server
             services.AddTransient<Infrastructure.SqlServerClient.SqlServerClientRepository>();
 
