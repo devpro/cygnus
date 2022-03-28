@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
-    <AssemblyName>Cygnus.ConsoleApp</AssemblyName>
+    <AssemblyName>cygnus</AssemblyName>
     <RootNamespace>Cygnus.ConsoleApp</RootNamespace>
     <ProjectGuid>{3B29D10C-9017-4A5B-8AD9-13AA634FC180}</ProjectGuid>
     <ImplicitUsings>enable</ImplicitUsings>
