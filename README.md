@@ -1,5 +1,10 @@
 # Cygnus
 
+[![GitLab Pipeline Status](https://gitlab.com/kalosyni/cygnus/badges/main/pipeline.svg)](https://gitlab.com/kalosyni/cygnus/-/pipelines)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=kalosyni_cygnus&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=kalosyni_cygnus)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=kalosyni_cygnus&metric=coverage)](https://sonarcloud.io/summary/new_code?id=kalosyni_cygnus)
+[![Nuget](https://img.shields.io/nuget/v/cygnus.svg)](https://www.nuget.org/packages/cygnus)
+
 Cygnus is a free open source data synchronization tool.
 
 ## Use case
