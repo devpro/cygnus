@@ -48,8 +48,8 @@ namespace Cygnus.Infrastructure.SqlServerClient
                     // avoid issues with duplicates in source
                     if (correlationFieldValues.Contains(reader[correlationField].ToString()))
                     {
-                        _logger.LogInformation("Duplicate entry found in SQL Server results for {FieldName}=\"{FieldValue}\"",
-                            reader[correlationField].ToString());
+                        _logger.LogInformation("Duplicate entry found in SQL Server results for {CorrelationFieldName}=\"{FieldValue}\"",
+                            correlationField, reader[correlationField].ToString());
                         continue;
                     }
 
@@ -62,7 +62,7 @@ namespace Cygnus.Infrastructure.SqlServerClient
             catch (Exception exc)
             {
                 _logger.LogWarning("An error is raised on SQL Server database call [ExceptionMessage={ExceptionMessage}] [DataSource={DataSource}] [SqlQuery={SqlQuery}]",
-                    source.Name, exc.Message, source.Query);
+                    exc.Message, source.Name, source.Query);
                 _logger.LogDebug(exc.StackTrace);
                 throw;
             }

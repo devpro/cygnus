@@ -37,6 +37,9 @@ namespace Cygnus.Infrastructure.MongoDbDriverClient
 
             var existing = await FindAllAsync(collection, destination.CorrelationField);
 
+            var createdNb = 0;
+            var updatedNb = 0;
+
             foreach (var record in data)
             {
                 // not efficient
@@ -45,10 +48,14 @@ namespace Cygnus.Infrastructure.MongoDbDriverClient
                 if (!existing.ContainsKey(record[destination.CorrelationField]))
                 {
                     await InsertOneAsync(collection, CreateJson(record, destination));
+                    createdNb++;
                 }
 
                 // TODO: update if needed! (look at a last updated date)
             }
+
+            _logger.LogInformation("Write completed {DestinationName} [Created={CreatedNb}] [Updated={UpdatedNb}]",
+                destination.Name, createdNb, updatedNb);
         }
 
         private string CreateJson(Dictionary<string, string> record, DestinationModel destination)

@@ -1,4 +1,4 @@
-﻿namespace Cygnus.ConsoleApp
+﻿namespace Cygnus.ConsoleApp.DependencyInjection
 {
     internal static class ServiceCollectionExtensions
     {
