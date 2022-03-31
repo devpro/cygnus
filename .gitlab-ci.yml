@@ -78,4 +78,5 @@ pack:
         - Directory.Build.props
       when: always
     - if: '$CI_PIPELINE_SOURCE == "web"'
-      when: always
+      when: manual
+      allow_failure: true
