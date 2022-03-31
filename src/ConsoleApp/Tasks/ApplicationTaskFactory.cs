@@ -2,7 +2,7 @@
 
 namespace Cygnus.ConsoleApp.Tasks
 {
-    internal class ApplicationTaskFactory
+    public class ApplicationTaskFactory
     {
         private readonly ServiceProvider _serviceProvider;
 

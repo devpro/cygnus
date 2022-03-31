@@ -1,7 +1,5 @@
 ﻿// main
 
-using System.Reflection;
-
 await Parser.Default.ParseArguments<CommandLineOptions>(args)
     .MapResult(
         (CommandLineOptions opts) => RunOptionsAndReturnExitCode(opts),

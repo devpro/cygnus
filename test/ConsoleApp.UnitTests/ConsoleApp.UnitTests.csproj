@@ -1,10 +1,10 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <AssemblyName>Cygnus.Infrastructure.SqlServerClient.IntegrationTests</AssemblyName>
-    <RootNamespace>Cygnus.Infrastructure.SqlServerClient.IntegrationTests</RootNamespace>
-    <ProjectGuid>{4C1496CF-D191-42FB-9E8F-71FB2B7B1E79}</ProjectGuid>
+    <AssemblyName>Cygnus.ConsoleApp.UnitTests</AssemblyName>
+    <RootNamespace>Cygnus.ConsoleApp.UnitTests</RootNamespace>
+    <ProjectGuid>{BF41F817-293A-4FB5-854A-2676BF539FF8}</ProjectGuid>
     <Nullable>enable</Nullable>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
@@ -15,12 +15,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="coverlet.collector" Version="3.1.0">
+    <PackageReference Include="coverlet.collector" Version="3.1.2">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="FluentAssertions" Version="6.5.1" />
     <PackageReference Include="JunitXml.TestLogger" Version="3.0.110" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
+    <PackageReference Include="Moq" Version="4.17.2" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -29,7 +31,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Infrastructure.SqlServerClient\Infrastructure.SqlServerClient.csproj" />
+    <ProjectReference Include="..\..\src\ConsoleApp\ConsoleApp.csproj" />
   </ItemGroup>
 
 </Project>

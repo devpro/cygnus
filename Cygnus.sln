@@ -48,6 +48,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "mssql", "mssql", "{807D4311
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Serialization", "src\Serialization\Serialization.csproj", "{04F7901C-60AE-4814-9EBD-75B31D57FA77}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp.UnitTests", "test\ConsoleApp.UnitTests\ConsoleApp.UnitTests.csproj", "{3997BE9E-4CE8-48A5-BE43-863C14AC1CE4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -82,6 +84,10 @@ Global
 		{04F7901C-60AE-4814-9EBD-75B31D57FA77}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04F7901C-60AE-4814-9EBD-75B31D57FA77}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04F7901C-60AE-4814-9EBD-75B31D57FA77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3997BE9E-4CE8-48A5-BE43-863C14AC1CE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3997BE9E-4CE8-48A5-BE43-863C14AC1CE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3997BE9E-4CE8-48A5-BE43-863C14AC1CE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3997BE9E-4CE8-48A5-BE43-863C14AC1CE4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -97,6 +103,7 @@ Global
 		{4C1496CF-D191-42FB-9E8F-71FB2B7B1E79} = {1A8E187B-6193-43B3-99AC-9C4CA30D8A9C}
 		{807D4311-BA2C-41EC-A67E-D7F686C81EEB} = {68681C33-F36D-430E-BF17-42775AA7D4A5}
 		{04F7901C-60AE-4814-9EBD-75B31D57FA77} = {E255E96D-9106-44CD-98B4-EC90559F2953}
+		{3997BE9E-4CE8-48A5-BE43-863C14AC1CE4} = {3377A148-E3C8-4F79-AD53-69119F2ABA50}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0F763428-8334-40DC-A997-68789338091B}
