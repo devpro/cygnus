@@ -20,7 +20,7 @@ workflow:
 build:
   stage: build
   before_script:
-    - cat /etc/issues
+    - cat /etc/issue
   script:
     - cd $ROOT_FOLDER
     - dotnet restore

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,10 +19,13 @@ namespace Cygnus.Infrastructure.MongoDbDriverClient
 
         private readonly ILogger<MongoDbDriverClientRepository> _logger;
 
-        public MongoDbDriverClientRepository(MongoClientFactory mongoClientFactory, ILogger<MongoDbDriverClientRepository> logger)
+        private readonly DatabaseConfiguration _configuration;
+
+        public MongoDbDriverClientRepository(MongoClientFactory mongoClientFactory, ILogger<MongoDbDriverClientRepository> logger, DatabaseConfiguration configuration)
         {
             _mongoClientFactory = mongoClientFactory;
             _logger = logger;
+            _configuration = configuration;
         }
 
         public Task<List<Dictionary<string, string>>> ReadAsync(SourceModel source, List<FieldModel> fields, string correlationField)
@@ -31,7 +35,12 @@ namespace Cygnus.Infrastructure.MongoDbDriverClient
 
         public async Task WriteAsync(List<Dictionary<string, string>> data, DestinationModel destination)
         {
-            var mongoDbClient = _mongoClientFactory.CreateClient(destination.Name);
+            if (!_configuration.ConnectionStrings.ContainsKey(destination.Name))
+            {
+                throw new Exception($"Missing MongoDB connection string with name \"{destination.Name}\"");
+            }
+
+            var mongoDbClient = _mongoClientFactory.CreateClient(_configuration.ConnectionStrings[destination.Name]);
 
             var collection = mongoDbClient.GetDatabase(destination.Database).GetCollection<BsonDocument>(destination.Collection);
 

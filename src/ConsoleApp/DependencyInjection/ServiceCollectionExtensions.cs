@@ -34,12 +34,7 @@
             services.AddTransient<Infrastructure.SqlServerClient.SqlServerClientRepository>();
 
             // MongoDB
-            // TODO
-            var mongoDbDriverClientConfiguration = new Infrastructure.MongoDbDriverClient.MongoDbDriverClientConfiguration()
-            {
-                ConnectionString = configuration.DatabaseConfiguration.ConnectionStrings["MongoDbLocal"]
-            };
-            services.AddSingleton(mongoDbDriverClientConfiguration);
+            services.AddSingleton<Infrastructure.MongoDbDriverClient.MongoDbDriverClientConfiguration>();
             services.TryAddScoped<Infrastructure.MongoDbDriverClient.MongoClientFactory>();
             services.AddTransient<Infrastructure.MongoDbDriverClient.MongoDbDriverClientRepository>();
 

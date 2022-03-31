@@ -17,8 +17,7 @@ namespace Cygnus.Infrastructure.MongoDbDriverClient
 
         public MongoClient CreateClient(string connectionStringName)
         {
-            //TODO
-            return new MongoClient(_configuration.ConnectionString);
+            return new MongoClient(connectionStringName);
         }
 
         private void RegisterConventions()

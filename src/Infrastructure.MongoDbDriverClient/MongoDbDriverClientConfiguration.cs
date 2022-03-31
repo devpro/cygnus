@@ -4,9 +4,6 @@ namespace Cygnus.Infrastructure.MongoDbDriverClient
 {
     public class MongoDbDriverClientConfiguration
     {
-        //TODO
-        public string ConnectionString { get; set; } = string.Empty;
-
         public List<string> SerializationConventions =>
             new List<string>
             {
