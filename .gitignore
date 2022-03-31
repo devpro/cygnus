@@ -351,3 +351,4 @@ MigrationBackup/
 
 # Local run configurations
 **/Properties/launchSettings.json
+/samples/*ubisoft*.*

@@ -1,0 +1,8 @@
+{
+  "Databases": {
+    "ConnectionStrings": {
+      "SqlServerLocal": "Data Source=127.0.0.1;Initial Catalog=master;Persist Security Info=True;User ID=SA;Password=s0m3Str0ng!P@ssw0rd;Pooling=False;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=False",
+      "MongoDbLocal": "mongodb://localhost:27017/?readPreference=primary&appname=Cygnus&directConnection=true&ssl=false"
+    }
+  }
+}

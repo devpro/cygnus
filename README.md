@@ -9,6 +9,8 @@ Cygnus is a free open source data synchronization tool.
 
 ## Use case
 
+Given you have two data stores in your system that needs to be synchronized, Cygnus is the right tool to do it efficiently.
+
 ```mermaid
 sequenceDiagram
   Cygnus->>Source (SQL Server): read
@@ -17,21 +19,29 @@ sequenceDiagram
 
 ## Quick start
 
-Cygnus is a .NET global tool so all you need to to is install the latest [.NET SDK](https://dotnet.microsoft.com/download)
-and run the following command:
+Cygnus is a .NET global tool. It only requires to have [.NET SDK](https://dotnet.microsoft.com/download) installed to run.
 
 ```bash
-# installs
+# installs the tool on the system
 dotnet tool install --global cygnus
 
 # displays help
 cygnus --help
 
 # synchronizes data
-cygnus -f <config_file>
+cygnus -f <definition_yaml_file> -c <configuration_yaml_file>
 ```
 
-## Contribue
+## Samples
+
+Sample files: [settings.json](./samples/settings.json), [sqlserver-to-mongodb-migration.yml](./samples/settings.json)
+
+```bash
+# runs the tool with verbose messages
+run -v -f ./samples/sqlserver-to-mongodb-migration.yml -f ./samples/settings.json
+```
+
+## Contribute
 
 ### Tooling
 
@@ -60,6 +70,23 @@ MONGODB_HOST=mongodb
 docker run --rm --name $MONGODB_HOST -d -p 27017:27017 mongo:5.0
 ```
 
+### Debugging
+
+* Create a file `src/ConsoleApp/Properties/launchSettings.json`
+
+```json
+{
+  "profiles": {
+    "ConsoleApp": {
+      "commandName": "Project",
+      "commandLineArgs": "run -v -f ../../../../../samples/sqlserver-to-mongodb-migration.yml -f ../../../../../samples/settings.json"
+    }
+  }
+}
+```
+
+* Start debugging ConsoleApp project in Visual Studio
+
 ### Validating the global tool
 
 ```bash
@@ -72,3 +99,7 @@ dotnet tool install --global --add-source ./nupkg cygnus --version 1.0.1-alpha-0
 # removes the tool
 dotnet tool uninstall --global cygnus
 ```
+
+### Additional information
+
+* [Automation](./docs/automation.md)

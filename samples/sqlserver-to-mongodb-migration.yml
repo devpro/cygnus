@@ -1,0 +1,22 @@
+entities:
+  - name: dummies
+    source:
+      name: SqlServerLocal
+      providerType: SQLServer
+      database: TestDB
+      query: |
+        select * from Inventory
+    destination:
+      name: MongoDbLocal
+      providerType: MongoDB
+      database: cygnus_dev
+      collection: dummies
+      correlationField: cmdb_id
+      fields:
+        - name: cmdb_id
+          mapFrom: CMDB_ID
+        - name: name
+          mapFrom: Name
+        - name: is_stack_member
+          mapFrom: Is_stack_Member
+          fieldType: Boolean
