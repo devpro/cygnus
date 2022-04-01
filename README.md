@@ -104,3 +104,8 @@ dotnet tool uninstall --global cygnus
 ### Additional information
 
 * [Automation](./docs/automation.md)
+
+### Examples with other technologies
+
+* [dannysofftie/mysql-mongo-etl](https://github.com/dannysofftie/mysql-mongo-etl)
+* [anlek/mongify](https://github.com/anlek/mongify)
